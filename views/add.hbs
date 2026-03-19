@@ -1,0 +1,29 @@
+<div class="phonebook">
+  <div class="phonebook__list">
+    {{#each entries}}
+      {{> phoneRow entry=this mode=../mode}}
+    {{/each}}
+  </div>
+
+  <div class="phonebook__form">
+    <form action="/Add" method="post" class="form-line">
+      <input
+        type="text"
+        name="name"
+        placeholder="Фамилия И.О."
+        class="form-line__input form-line__input--name"
+        required
+      >
+      <input
+        type="text"
+        name="phone"
+        placeholder="Номер телефона"
+        class="form-line__input form-line__input--phone"
+        required
+      >
+      <button type="submit" class="btn btn-primary">Добавить</button>
+      {{{cancelLink}}}
+    </form>
+  </div>
+</div>
+

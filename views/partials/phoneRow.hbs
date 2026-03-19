@@ -1,0 +1,18 @@
+{{!--
+  Partial для одной кнопки-строки.
+  Параметры:
+    entry  - объект { id, name, phone }
+    mode   - 'home' | 'add' | 'update'
+--}}
+{{#if (eq mode "home")}}
+  <a href="/Update?id={{entry.id}}" class="row-button">
+    <span class="row-button__name">{{entry.name}}</span>
+    <span class="row-button__phone">{{entry.phone}}</span>
+  </a>
+{{else}}
+  <a class="row-button row-button--disabled">
+    <span class="row-button__name">{{entry.name}}</span>
+    <span class="row-button__phone">{{entry.phone}}</span>
+  </a>
+{{/if}}
+

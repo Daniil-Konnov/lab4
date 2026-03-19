@@ -1,0 +1,33 @@
+<div class="phonebook">
+  <div class="phonebook__list">
+    {{#each entries}}
+      {{> phoneRow entry=this mode=../mode}}
+    {{/each}}
+  </div>
+
+  <div class="phonebook__form">
+    <form action="/Update" method="post" class="form-line" id="updateForm">
+      <input type="hidden" name="id" value="{{current.id}}">
+      <input
+        type="text"
+        name="name"
+        value="{{current.name}}"
+        class="form-line__input form-line__input--name js-update-input"
+      >
+      <input
+        type="text"
+        name="phone"
+        value="{{current.phone}}"
+        class="form-line__input form-line__input--phone js-update-input"
+      >
+      <button type="submit" class="btn btn-primary">Изменить</button>
+    </form>
+
+    <form action="/Delete" method="post" class="form-inline">
+      <input type="hidden" name="id" value="{{current.id}}">
+      <button type="submit" class="btn btn-danger" id="deleteButton">Удалить</button>
+      {{{cancelLink}}}
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,12 @@
+<div class="phonebook">
+  <div class="phonebook__list">
+    {{#each entries}}
+      {{> phoneRow entry=this mode=../mode}}
+    {{/each}}
+  </div>
+
+  <div class="phonebook__actions">
+    <a href="/Add" class="btn btn-primary">Добавить</a>
+  </div>
+</div>
+
