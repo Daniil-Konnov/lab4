@@ -46,6 +46,15 @@ app.get('/', (req, res) => {
   });
 });
 
+// GET /phonebook.json — отладочная “витрина” данных для браузера
+// Нужно, чтобы при тестировании на Render можно было открыть phonebook.json и видеть содержимое.
+app.get('/phonebook.json', (req, res) => {
+  // Отключаем кэш, чтобы браузер не показывал старую версию данных
+  res.setHeader('Cache-Control', 'no-store');
+  res.type('application/json; charset=utf-8');
+  res.sendFile(DATA_FILE);
+});
+
 app.get('/Add', (req, res) => {
   const entries = readPhonebook();
   res.render('add', {
